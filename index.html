@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Imam & Afri</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+   <!-- Carousel Start -->
+   <div class="container-fluid p-0 mb-5 pb-5" id="home">
+    <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item position-relative active" style="height: 100vh; min-height: 200px;">
+                <img class="position-absolute w-100 h-100" src="img/carousel-3.jpeg" style="object-fit: cover;">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Imam & Afri</h1>
+                        <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
+                            <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">Hadiri Undangan Kami</h3>
+                        </div>
+                        
+                        <audio id="backgroundMusic" hidden loop>
+                            <source src="music/Miki Matsubara.mp3" type="audio/mpeg">
+                        </audio>
+                    </div>
+                    <a href="undangan.html" id="musicControl" class="btn btn-outline-primary font-weight-bold m-1 py-2 px-4 music-control" onclick="playMusic(event)">Menuju Undangan</a>
+                </div>           </div>
+            
+                            <button type="button" href="undangan.html">
+                                <span></span>
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+           
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/isotope/isotope.pkgd.min.js"></script>
+<script src="lib/lightbox/js/lightbox.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+
+<script>
+    function playMusic(event) {
+        event.preventDefault(); // Prevent immediate navigation
+        const audio = document.getElementById('backgroundMusic');
+        audio.play();
+        // Navigate after a short delay to allow music to start
+        setTimeout(() => {
+            window.location.href = 'undangan.html';
+        }, 100);
+    }
+    </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgMusic = document.getElementById('bgMusic');
+            const musicControl = document.getElementById('musicControl');
+            let isPlaying = false;
+
+            // Check if music was playing from previous page
+            if (localStorage.getItem('musicPlaying') === 'true') {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    musicControl.innerHTML = '<i class="fa fa-pause"></i>';
+                }).catch(error => {
+                    console.log('Autoplay prevented:', error);
+                });
+            }
+
+            musicControl.addEventListener('click', function() {
+                if (isPlaying) {
+                    bgMusic.pause();
+                    musicControl.innerHTML = '<i class="fa fa-music"></i>';
+                    localStorage.setItem('musicPlaying', 'false');
+                } else {
+                    bgMusic.play().then(() => {
+                        musicControl.innerHTML = '<i class="fa fa-pause"></i>';
+                        localStorage.setItem('musicPlaying', 'true');
+                    }).catch(error => {
+                        console.log('Playback prevented:', error);
+                    });
+                }
+                isPlaying = !isPlaying;
+            });
+        });
+    </script>
+
+</body>
+
+</html>
