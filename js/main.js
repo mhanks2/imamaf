@@ -10,6 +10,19 @@
         }
     });
 
+    document.getElementById("copyButton").addEventListener("click", function() {
+  const textToCopy = document.getElementById("textToCopy").innerText;
+
+  navigator.clipboard.writeText(textToCopy)
+    .then(() => {
+      // Sukses menyalin
+      console.log('Teks disalin ke clipboard!');
+    })
+    .catch(err => {
+      // Gagal menyalin
+      console.error('Gagal menyalin teks: ', err);
+    });
+});
 
     // Smooth scrolling on the navbar links
     $(".navbar-nav a").on('click', function (event) {
