@@ -73,7 +73,7 @@
 
                         </div>
                         <audio id="bgMusic" loop>
-                            <source src="music/I Love You 3000 - Stephanie Poetri Fingerstyle Guitar Cover.mp3" type="audio/mpeg">
+                            <source src="music/Nothing's Gonna Change My Love For You (Saxophone Cover by Dori Wirawan) (mp3cut.net).mp3" type="audio/mpeg">
                         </audio>
                     
                         <!-- Music Control Button -->
@@ -119,8 +119,8 @@
                 <div class="col-md-6 p-0 text-center text-md-right">
                     <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
                         <h3 class="mb-3">Mempelai Pria</h3>
-                        <p>Putra pertama dari bapak Iwan dan ibu Indria Ika Setyawati</p>
-                        <h3 class="font-secondary font-weight-normal text-muted mb-3"><i class="fa fa-male text-primary pr-3"></i>Imam Maliqi Indrawan. SI</h3>
+                        <p>Putra Pertama Dari Bapak Iwan Dan Ibu Indria Ika Setyawati</p>
+                        <h3 class="mb-3""><i class="fa fa-male text-primary pr-3"></i>Imam Maliqi Indrawan. SI</h3>
                         <div class="position-relative">
                             <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/cancer_mams/"><i class="fab fa-instagram"></i></a>
                         </div>
@@ -137,8 +137,8 @@
                 <div class="col-md-6 p-0 text-center text-md-left">
                     <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
                         <h3 class="mb-3">Mempelai Wanita</h3>
-                        <p>Putri pertama dari Ismadi (alm) dan ibu Christina Suryani</p>
-                        <h3 class="font-secondary font-weight-normal text-muted mb-3"><i class="fa fa-female text-primary pr-3"></i>Afri Ismayani</h3>
+                        <p>Putra Pertama Dari Bapak Ismadi (alm) Dan Ibu Christina Suryani</p>
+                        <h3 class="mb-3"><i class="fa fa-female text-primary pr-3"></i>Afri Ismayani</h3>
                         <div class="position-relative">
                             <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/_afr.ism/"><i class="fab fa-instagram"></i></a>
                         </div>
@@ -223,10 +223,15 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center">
                 <img class="img-fluid mb-4" src="img/hadiah-01.png" alt="">
+                <div class="copy-container mb-4">
+                    <h4 id="textToCopy1" class="mb-3">7655408169</h4>
+                    <p class="mb-2">BCA a.n. Imam Maliqi Indrawan</p>
+                    <button onclick="copyToClipboard('textToCopy1')" class="btn btn-outline-primary mb-4">Klik Untuk Menyalin No Rekening Imam</button>
+                </div>
                 <div class="copy-container">
-                <h4 id="textToCopy" class="mb-3">BCA : 7655408169</h4>
-                <p></p>
-                <button id="copyButton" class="btn-outline-primary">Klik Untuk Menyalin No Rekening</button>
+                    <h4 id="textToCopy2" class="mb-3">7027003042</h4>
+                    <p class="mb-2">BCA a.n. Afri Ismayani</p>
+                    <button onclick="copyToClipboard('textToCopy2')" class="btn btn-outline-primary">Klik Untuk Menyalin No Rekening Afri</button>
                 </div>
             </div>
 </div>
@@ -437,6 +442,17 @@ var x = setInterval(function() {
         $(document).ready(function() {
             loadRSVPMessages();
         });
+    </script>
+
+    <script>
+    function copyToClipboard(elementId) {
+        const text = document.getElementById(elementId).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Nomor rekening berhasil disalin!');
+        }).catch(err => {
+            console.error('Gagal menyalin: ', err);
+        });
+    }
     </script>
 </body>
 
