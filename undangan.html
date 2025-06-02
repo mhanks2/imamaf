@@ -24,9 +24,44 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    
+    <!-- Falling Leaves Animation Styles -->
+    <style>
+        .leaves-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .leaf {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('img/leaf.svg') no-repeat;
+            background-size: contain;
+            opacity: 0.7;
+            animation: falling linear infinite;
+        }
+        
+        @keyframes falling {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <!-- Falling Leaves Container -->
+    <div class="leaves-container" id="leavesContainer"></div>
+    
     <!-- Navbar Start -->
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand d-block d-lg-none">
@@ -256,7 +291,7 @@
                         <img class="img-fluid mb-4" src="img/acara-01.png" alt="">
                         <h4 class="mb-3">Acara Rumahan</h4>
                         <p class="mb-2">Kediaman Mempelai Pria</p>
-                        <p class="mb-0">21 Juni 2025</p>
+                        <p class="mb-0">22 Juni 2025</p>
                         <a href="https://maps.app.goo.gl/LeEak9W8pWSd5mWM6" class="btn btn-outline-primary">Klik Untuk Melihat Lokasi</a>
                     </div>
                 </div>
@@ -265,8 +300,8 @@
                         <img class="img-fluid mb-4" src="img/acara1-01.png" alt="">
                         <h4 class="mb-3">Acara Utama</h4>
                         <p class="mb-2">Kediaman Mempelai Wanita</p>
-                        <p class="mb-0">22 Juni 2025</p>
-                        <a href="https://maps.app.goo.gl/sDh7z68RhVjEnTd39" class="btn btn-outline-primary">Klik Untuk Melihat Lokasi</a>
+                        <p class="mb-0">21 Juni 2025</p>
+                        <a href="https://maps.app.goo.gl/cB3A1Qkq2ZvHXvGV9" class="btn btn-outline-primary">Klik Untuk Melihat Lokasi</a>
                     </div>
             </div>
                 </div>
@@ -362,6 +397,26 @@ var x = setInterval(function() {
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <!-- Falling Leaves Animation Script -->
+    <script>
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            leaf.style.opacity = Math.random() * 0.5 + 0.3;
+            document.getElementById('leavesContainer').appendChild(leaf);
+            
+            // Remove leaf after animation completes
+            setTimeout(() => {
+                leaf.remove();
+            }, 5000);
+        }
+
+        // Create leaves periodically
+        setInterval(createLeaf, 300);
+    </script>
 
     <!-- Music Control Script -->
     <script>
